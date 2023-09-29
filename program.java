@@ -546,6 +546,79 @@
 // }
 
 
+
+// === LINKEDLIST ===
+
+// Представляет собой двусвязный список.
+// Список – гибкая структура данных, позволяющая легко менять свой
+// размер. Элементы доступны для вставки или удаления в любой позиции.
+
+// LinkedList нужен для небольшого количества
+// элементов, в которых операции добавления\удаления
+// встречаются чаще операций чтения.
+
+
+
+// === QUEUE ===
+
+// Queue<Integer> queue = new LinkedList<Integer>();    // создание коллекции queue
+// queue.add(4);                                        // добавление элемента 
+// int item = queue.remove();                           // удаление элемента (удаляет по очереди добавления элементов в коллекцию ->
+                                                        // -> т.е. сначала удалит элемент, добавленный первым и т.д.)
+
+
+// import java.util.*;
+// public class Ex002_Queue {
+//      public static void main(String[] args) {
+        //  Queue<Integer> queue = new LinkedList<Integer>();
+        //  queue.add(1);
+        //  queue.add(2);
+        //  queue.add(3);
+        //  queue.add(4);
+        //  System.out.println(queue); // [1, 2, 3, 4]
+        //  int item = queue.remove();
+        //  System.out.println(queue); // [2, 3, 4]
+        //  queue.offer(2809);
+        //  item = queue.remove();
+        //  System.out.println(queue); // [3, 4, 2809]
+        //  item = queue.remove();
+        //  System.out.println(queue); // [4, 2809]
+        //  item = queue.poll();
+        //  System.out.println(queue); // [2809]
+        //  }
+// }
+
+
+// Подвид PriorityQueue - Наивысший приоритет имеет «наименьший» элемент.
+
+// Подвид DeQueue - Линейная коллекция, которая поддерживает вставку и удаление элементов на обоих концах.
+
+// == Команды для DeQueue ===
+
+// import java.util.*;
+// public class Ex003_Deque {
+//     public static void main(String[] args) {
+//         Deque<Integer> deque = new ArrayDeque<>();
+//         Deque<Integer> deque = new ArrayDeque<>();
+//         deque.addFirst(1); deque.addLast(2);
+//         deque.removeFirst(); deque.removeLast();
+//         deque.offerFirst(1); deque.offerLast(2);
+//         deque.pollFirst(); deque.pollLast();
+//         deque.getFirst(); deque.getLast();
+//         deque.peekFirst(); deque.peekLast();
+
+// === Stack ===
+
+// Stack (подвид List) представляет собой обработку данных по принципу LIFO (Last in, First out).
+// Расширяет Vector пятью операциями, которые позволяют рассматривать вектор как стек.
+
+// push(E item) // добавление элемента в стэк (можно и add)
+// peek - добавление верхнего элемента
+// pop()    // удаление верхнего элемента
+
+
+
+
 // === ИТЕРАТОР ===
 
 
@@ -593,6 +666,145 @@
 //         }
 //     }
 // }
+
+
+
+
+// === MAP ===
+
+// Map – это множество коллекций, работающих с данными
+// по принципу <Ключ / Значение>.
+// Ключевые особенности:
+// ● ускоренная обработка данных;
+// ● порядок добавления не запоминается.
+// В HashMap элементы располагаются как угодно и могут
+// менять свое положение.
+
+
+// import java.util.*;
+// public class Ex001_HashMap {
+//     public static void main(String[] args) {
+//         Map<Integer, String> db = new HashMap<>();
+//         db.put(1, "один"); System.out.println(db);
+//         db.put(2, "два"); System.out.println(db);
+//         db.put(3, "три"); System.out.println(db);
+//         db.put(31, "три один"); System.out.println(db);
+//         db.put(13, "один три"); System.out.println(db);
+//         db.put(null, "!null"); System.out.println(db);
+//         db.put(null, null); System.out.println(db);
+
+
+// = ФУНКЦИОНАЛ MAP =
+
+// put(K,V) – добавить пару если или изменить значение,если ключ имеется.
+// putIfAbsent(K,V) – произвести добавление если ключ не найден.
+// get(K) - получение значения по указанному ключу.
+// remove(K) – удаляет пару по указанному ключу.
+// containsValue(V) – проверка наличия значения.
+// containsKey(V) – проверка наличия ключа.
+// keySet() – возвращает множество ключей.
+// values() – возвращает набор значений.
+
+
+
+// = Работа с парами =
+// import java.util.*;
+// public class Ex002_HashMapEntry {
+//     public static void main(String[] args) {
+//         Map<Integer, String> db = new HashMap<>();
+//         db.putIfAbsent(1, "один");
+//         db.put(2, "два");
+//         db.put(3, "три");
+//         System.out.println(db);
+
+//         for (var item : db.entrySet()) { // цикл с функцмей .entrySet для прохода по коллекции
+//         System.out.printf("[%d: %s]\n", item.getKey(), item.getValue()); // получение ключа и значения
+//         }
+//     }
+// }
+
+
+// = Как ускорить работу =
+
+// import java.util.*;
+// public class Ex003_HashMapBoost {
+//     public static void main(String[] args) {
+//         Map<Integer,String> map1 = new HashMap<>();  // выделение места в памяти по умолчанию
+//         Map<Integer,String> map2 = new HashMap<>(9); // можно указать конкретное количество элементов, которые будут содержаться в нашем массиве
+//         Map<Integer,String> map3 = new HashMap<>(9, 1.0f);   // количество элементов + указание на сколько процентов надо увеличить массив при 100% заполнении
+
+
+
+// == TREE MAP ==
+
+// import java.util.*;
+// public class Ex004_TreeMap {
+//      public static void main(String[] args) {
+//         TreeMap<Integer,String> tMap = new TreeMap<>();
+//         tMap.put(1,"один"); System.out.println(tMap);
+//         // {1=один}
+//         tMap.put(6,"шесть"); System.out.println(tMap);
+//         // {1=один, 6=шесть}
+//         tMap.put(4,"четыре"); System.out.println(tMap);
+//         // {1=один, 4=четыре, 6=шесть}
+//         tMap.put(3,"три"); System.out.println(tMap);
+//         // {1=один, 3=три, 4=четыре, 6=шесть}
+//         tMap.put(2,"два"); System.out.println(tMap);
+//         // {1=один, 2=два, 3=три, 4=четыре, 6=шесть}
+
+
+// = Методы Tree Map =
+
+// put(K,V) 
+// get(K) 
+// remove(K)
+// descendingMap() 
+// tailMap() 
+// headMap() 
+// lastEntry() 
+// firstEntry()
+
+
+// === LinkedHashMap ===
+
+// “Старший брат” коллекции HashMap, который всё помнит…
+// Помнит порядок добавления элементов ➜ более медлительный
+
+// Map<Integer,String> linkmap = new LinkedHashMap<>();
+
+// import java.util.*;
+// public class Ex005_LinkedHashMap {
+//     public static void main(String[] args) {
+//         Map<Integer,String> linkmap = new LinkedHashMap<>();
+//         linkmap.put(11, "один один");
+//         linkmap.put(1, "два");
+//         linkmap.put(2, "один");
+//         System.out.println(linkmap); // {11=один один, 1=два, 2=один}
+//         Map<Integer,String> map = new HashMap<>();
+//         map.put(11, "один один");
+//         map.put(2, "два");
+//         map.put(1, "один");
+//         System.out.println(map); // {1=один, 2=два, 11=один один}
+
+
+
+// === HashTable ===
+
+// «Устаревший брат» коллекции HashMap,
+// который не знает про null
+
+// import java.util.*;
+// public class Ex006_HashTable {
+//     public static void main(String[] args) {
+//         Map<Integer,String> table = new Hashtable<>();
+//         table.put(1, "два");
+//         table.put(11, "один один");
+//         table.put(2, "один");
+//         System.out.println(table); // {2=один, 1=два, 11=один один}
+//         // table.put(null, "один"); // java.lang.NullPointerException
+//         }
+// }
+
 
 
 
