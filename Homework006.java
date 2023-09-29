@@ -16,6 +16,7 @@
 // Average is = 5
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Homework006 {
@@ -36,5 +37,21 @@ public class Homework006 {
         }
         System.out.println("Average is " + sum / list.size());
     }
-    
 }
+
+
+// ==== Второе решение ====
+
+// public static void analyzeNumbers(Integer[] arr) {
+//         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(arr));
+//         list.sort(Integer::compareTo); // сортировка списка по возрастанию
+//         System.out.println(list); // вывод списка на экран
+//         System.out.println("Minimum is " + list.get(0)); // нахождение минимального значения в списке и вывод на экран
+//         System.out.println("Maximum is " + list.get(list.size()-1)); // нахождение максимального значения в списке и вывод на экран
+
+//         int sum = 0;
+//         for(int i : list){ // вычисление суммы всех элементов списка
+//             sum += i;
+//         }
+//         System.out.println("Average is = " + sum / list.size()); // вычисление среднего арифметического значений списка и вывод на экран
+// }
